@@ -12,7 +12,7 @@ export default async function HomePage() {
 
     return (
       <div>
-        <h1 className="text-3xl font-bold mb-8 text-gray-900">
+        <h1 className="text-3xl font-bold mb-8">
           Discover Products
         </h1>
         <ProductList products={products} categories={categories} />

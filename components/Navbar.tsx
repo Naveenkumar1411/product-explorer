@@ -1,25 +1,27 @@
 "use client";
 
 import Link from "next/link";
+import { ThemeToggle } from "./ThemeToggle";
 import { useFavorites } from "@/context/FavoritesContext";
 
 export default function Navbar() {
     const { favorites } = useFavorites();
 
     return (
-        <nav className="bg-white shadow-sm sticky top-0 z-50">
+        <nav className="bg-white dark:bg-gray-900 shadow-sm sticky top-0 z-50 transition-colors">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-16 items-center">
                     <Link href="/" className="flex items-center">
-                        <span className="text-xl font-bold text-gray-900">
+                        <span className="text-xl font-bold text-gray-900 dark:text-white">
                             Product Explorer
                         </span>
                     </Link>
 
                     <div className="flex items-center space-x-4">
+                        <ThemeToggle />
                         <Link
                             href="/?filter=favorites"
-                            className="text-gray-600 hover:text-gray-900 flex items-center font-medium transition"
+                            className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white flex items-center font-medium transition"
                         >
                             <span>Favorites</span>
                             {favorites.length > 0 && (

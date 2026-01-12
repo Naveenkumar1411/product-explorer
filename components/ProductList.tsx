@@ -54,12 +54,12 @@ export default function ProductList({ products, categories }: Props) {
 
     return (
         <div>
-            <div className="mb-8 space-y-4 md:space-y-0 md:flex md:items-end md:justify-between bg-white p-4 rounded-lg shadow-sm">
+            <div className="mb-8 space-y-4 md:space-y-0 md:flex md:items-end md:justify-between bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm border dark:border-gray-700">
                 {/* Search */}
                 <div className="flex-1 max-w-md">
                     <label
                         htmlFor="search"
-                        className="block text-sm font-medium text-gray-700 mb-1"
+                        className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1"
                     >
                         Search
                     </label>
@@ -67,7 +67,7 @@ export default function ProductList({ products, categories }: Props) {
                         id="search"
                         type="text"
                         placeholder="Search products..."
-                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 border"
+                        className="block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 border bg-white dark:bg-gray-700 dark:text-white"
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                     />
@@ -78,7 +78,7 @@ export default function ProductList({ products, categories }: Props) {
                     <div className="min-w-[150px]">
                         <label
                             htmlFor="category"
-                            className="block text-sm font-medium text-gray-700 mb-1"
+                            className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1"
                         >
                             Category
                         </label>
@@ -86,7 +86,7 @@ export default function ProductList({ products, categories }: Props) {
                             id="category"
                             value={selectedCategory}
                             onChange={(e) => setSelectedCategory(e.target.value)}
-                            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 border"
+                            className="block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2 border bg-white dark:bg-gray-700 dark:text-white"
                         >
                             <option value="All">All Categories</option>
                             {categories.map((cat) => (
@@ -105,8 +105,8 @@ export default function ProductList({ products, categories }: Props) {
                                 checked={showFavoritesOnly}
                                 onChange={(e) => handleFavoritesToggle(e.target.checked)}
                             />
-                            <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
-                            <span className="ms-3 text-sm font-medium text-gray-900">
+                            <div className="relative w-11 h-6 bg-gray-200 dark:bg-gray-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                            <span className="ms-3 text-sm font-medium text-gray-900 dark:text-gray-200">
                                 Favorites Only
                             </span>
                         </label>
@@ -116,7 +116,7 @@ export default function ProductList({ products, categories }: Props) {
 
             {filteredProducts.length === 0 ? (
                 <div className="text-center py-12">
-                    <p className="text-gray-500 text-lg">No products found matching your criteria.</p>
+                    <p className="text-gray-500 dark:text-gray-400 text-lg">No products found matching your criteria.</p>
                     {showFavoritesOnly && (
                         <p className="text-gray-400 text-sm mt-2">
                             (You don't have any favorites yet, or none match the search)

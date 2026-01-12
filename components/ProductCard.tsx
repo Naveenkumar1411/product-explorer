@@ -20,10 +20,10 @@ export default function ProductCard({ product }: Props) {
     };
 
     return (
-        <div className="group relative border rounded-lg p-4 hover:shadow-lg transition bg-white flex flex-col h-full">
+        <div className="group relative border rounded-lg p-4 hover:shadow-lg transition bg-white dark:bg-gray-800 dark:border-gray-700 flex flex-col h-full">
             <button
                 onClick={handleFavoriteClick}
-                className="absolute top-2 right-2 z-10 p-2 rounded-full bg-white/80 hover:bg-white shadow-sm transition"
+                className="absolute top-2 right-2 z-10 p-2 rounded-full bg-white/80 hover:bg-white dark:bg-gray-700/80 dark:hover:bg-gray-700 shadow-sm transition"
                 aria-label={favorite ? "Remove from favorites" : "Add to favorites"}
             >
                 <svg
@@ -32,7 +32,7 @@ export default function ProductCard({ product }: Props) {
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
                     stroke={favorite ? "red" : "currentColor"}
-                    className="w-6 h-6"
+                    className="w-6 h-6 dark:stroke-gray-200"
                 >
                     <path
                         strokeLinecap="round"
@@ -43,7 +43,7 @@ export default function ProductCard({ product }: Props) {
             </button>
 
             <Link href={`/products/${product.id}`} className="flex-grow flex flex-col">
-                <div className="relative h-48 mb-4 w-full">
+                <div className="relative h-48 mb-4 w-full bg-white rounded-md p-2">
                     <img
                         src={product.image}
                         alt={product.title}
@@ -52,10 +52,10 @@ export default function ProductCard({ product }: Props) {
                 </div>
 
                 <div className="flex-grow">
-                    <h2 className="font-semibold text-gray-800 text-sm line-clamp-2 mb-2" title={product.title}>
+                    <h2 className="font-semibold text-gray-800 dark:text-gray-100 text-sm line-clamp-2 mb-2" title={product.title}>
                         {product.title}
                     </h2>
-                    <p className="text-xs text-gray-500 bg-gray-100 inline-block px-2 py-1 rounded-full mb-2">
+                    <p className="text-xs text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 inline-block px-2 py-1 rounded-full mb-2">
                         {product.category}
                     </p>
                 </div>
